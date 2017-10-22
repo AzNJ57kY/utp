@@ -14,6 +14,8 @@
 		private function loginUser($name, $password)
 		{
 			if (!empty($name) && !empty($password)) {
+				$password = hash('sha512', $password);
+
 				$q = $this->db->prepare('
 					SELECT * FROM users
 					WHERE name = ? AND password = ?
