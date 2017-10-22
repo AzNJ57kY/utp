@@ -233,8 +233,8 @@ html{height:100% !important;}
   border:1px solid transparent;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown.on,.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown.on:active{
-   border:1px solid #aaa;
-   background:#ccc;
+   background:#1d1d1d;
+   cursor: pointer;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown ins.ar{
   display:block;
