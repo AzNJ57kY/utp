@@ -150,3 +150,10 @@ input[type=submit] {
     border-top: 1px solid #282828;
     padding-top: 20px;
 }
+
+textarea {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	height: 250px;
+}

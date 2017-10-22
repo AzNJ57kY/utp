@@ -1,7 +1,7 @@
 		<h2>Forum: <?=$app->forum->name; ?></h2>
 		<p>Alle verfügbaren Themen aus dem ausgewählten Forum.</p>
 		<nav>
-			<a href="">Thema erstellen</a>
+			<a href="<?=$app->path; ?>/editor/ct/<?=app::$objRoute[1]; ?>">Thema erstellen</a>
 		</nav>
 		<table>
 			<tr>
