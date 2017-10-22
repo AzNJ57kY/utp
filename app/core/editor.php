@@ -21,7 +21,12 @@
 		private function checkMethod($method)
 		{
 			if ($method === 'ct') {
-				$this->mode = 1;
+				if ($this->checkForum(parent::$objRoute[2])) {
+					$this->mode = 1;
+				}
+				else {
+					$this->redirect('/');
+				}
 			}
 		}
 
@@ -58,6 +63,22 @@
 						Bitte Titel als auch Inhalt angeben!
 					');
 				}
+			}
+		}
+
+		private function checkForum($hash)
+		{
+			$q = $this->db->prepare('
+				SELECT id FROM forums
+				WHERE hash = ?
+			');
+			$q->execute([$hash]);
+
+			if ($q->rowCount() > 0) {
+				return true;
+			}
+			else {
+				return false;
 			}
 		}
 	}
