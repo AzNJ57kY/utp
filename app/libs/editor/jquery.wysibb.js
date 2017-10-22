@@ -110,7 +110,7 @@ wbbdebug=true;
 			smileConversion:	true,
 
 			//END img upload config 
-			buttons: 			"bold,italic,underline,strike,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|,justifyleft,justifycenter,justifyright,|,quote,code,table,removeFormat",
+			buttons: 			"bold,italic,underline,strike,|,img,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|,justifyleft,justifycenter,justifyright,|,quote,code,removeFormat",
 			allButtons: {
 				bold : {
 					title: CURLANG.bold,

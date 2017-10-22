@@ -97,10 +97,9 @@ html{height:100% !important;}
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .dis,.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.dis:hover{opacity:0.3;cursor:default;overflow:hidden;border:0;padding:1px 2px;background:transparent;}
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on,.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on:hover,.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:active {
-  background:#ccc;
+  background:#1d1d1d;
   padding:0px 1px;
-  box-shadow:inset 0px 0px 3px #aaa;
-  border:1px solid #aaa;
+  color: #fff;
   border-radius:0px;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-inner {
@@ -145,7 +144,7 @@ html{height:100% !important;}
   padding:0px 1px;
   border:1px solid transparent;
   border-radius:0px;
-  background:#eee;
+  background:#1a1a1a;
 }
 
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn .fonticon{
@@ -157,7 +156,7 @@ html{height:100% !important;}
   speak: none;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover .fonticon{
-  color:#1d1d1d;
+  color:#aaa;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on .fonticon{
   text-shadow:none;
