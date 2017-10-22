@@ -20,7 +20,7 @@
 		</a>
 		<div>
 			<nav>
-				<a href="<?=$app->path; ?>">Home</a>
+				<a href="<?=$app->path; ?>">Forum</a>
 			</nav>
 		</div>
 	</header>

@@ -26,7 +26,7 @@
 				$name = preg_replace('/[^a-z]+/', '', $file); 
 			}
 			else {
-				$name = 'home'; 
+				$name = 'forum'; 
 			}
 
 			self::$init = [
