@@ -111,7 +111,6 @@ html{height:100% !important;}
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip {
   display:none;
   background:#333;
-  border:1px solid #fff;
   position:absolute;
   line-height:20px;
   font-size:11px;
@@ -160,7 +159,7 @@ html{height:100% !important;}
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on .fonticon{
   text-shadow:none;
-  color:#000;
+  color:#fff;
 }
 .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn{
   /* width:46px; */
@@ -228,7 +227,7 @@ html{height:100% !important;}
   position:relative;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown:hover{
-  background:#eee;
+  background:#333;
   border:1px solid transparent;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown.on,.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown.on:active{
@@ -341,13 +340,12 @@ html{height:100% !important;}
   box-shadow:none;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select:hover{
-  background:#eee;
+  background:#333;
+  color: #aaa;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select.on,.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select.on:active{
    padding: 1px 1px 1px 5px;
-   border:1px solid #aaa;
-   background:#ccc;
-   box-shadow:inset 0px 0px 3px #aaa;
+   background:#333;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select .wbb-list{
   width:280px;
