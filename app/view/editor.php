@@ -29,4 +29,9 @@
 			<input type="submit" value="Bearbeiten">
 		<?php endif; ?>
 		</form>
+		<script>
+			$(function() {
+				$("#content").wysibb();
+			});
+		</script>
 		

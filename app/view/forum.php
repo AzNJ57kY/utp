@@ -6,6 +6,7 @@
 		<table>
 			<tr>
 				<td>Thema</td>
+				<td style="width: 10%;">Autor</td>
 				<td style="width: 15%;">Datum</td>
 			</tr>
 			<?php if (is_array($app->topics)): ?>
@@ -14,12 +15,16 @@
 				<td>
 					<a href="<?=$topic->path; ?>"><?=$topic->title; ?></a>
 				</td>
+				<td>
+					<a href="<?=$topic->path; ?>"><?=$topic->author; ?></a>
+				</td>
 				<td><?=$topic->date; ?></td>
 			</tr>
 			<?php endforeach; ?>
 			<?php else: ?>
 			<tr>
 				<td>Keine Themen vorhanden.</td>
+				<td>-</td>
 				<td>-</td>
 			</tr>
 			<?php endif; ?>

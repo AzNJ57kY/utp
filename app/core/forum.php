@@ -17,7 +17,7 @@
 		private function getTopics($hash)
 		{
 			$q = $this->db->prepare('
-				SELECT id,title,date FROM topics
+				SELECT author,id,title,date FROM topics
 				WHERE forum = ?
 				ORDER BY id ASC
 			');
@@ -30,6 +30,7 @@
 					$ent->title = $this->filter($ent->title);
 					$ent->date  = date('d.m.y H:i', strtotime($ent->date)) . ' Uhr';
 					$ent->path  = $this->path . '/topic/' . $ent->id;
+					$ent->author = $this->getAuthor($ent->author)->name;
 				}
 
 				return $out;
@@ -54,5 +55,22 @@
 				$this->redirect('/notfound');
 			}
 		}
+
+		private function getAuthor($id)
+		{
+			$q = $this->db->prepare('
+				SELECT name FROM users
+				WHERE id = ?
+			');
+			$q->execute([$id]);
+
+			if ($q->rowCount() > 0) {
+				$out = $q->fetch(PDO::FETCH_OBJ);
+				$out->name = $this->filter($out->name);
+
+				return $out;
+			}
+		}
+
 	}
 ?>
