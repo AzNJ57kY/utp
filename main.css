@@ -43,6 +43,10 @@ header nav {
 	max-width: 1080px;
 }
 
+header nav > a {
+	margin-right: 25px;
+}
+
 main {
 	margin: auto;
 	max-width: 1080px;
