@@ -17,6 +17,11 @@
 			');
 
 			$out = $q->fetchAll(PDO::FETCH_OBJ);
+
+			foreach ($out as $ent) {
+				$ent->name = $this->filter($ent->name);
+			}
+
 			return $out;
 		}
 	}
