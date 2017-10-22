@@ -23,6 +23,10 @@
 			</label>
 			<textarea name="content" id="content"><?=$app->post->content; ?></textarea>
 			<input type="submit" value="Bearbeiten">
+		<?php elseif ($app->mode === 4): ?>
+			<label for="title">Titel editieren</label>
+			<input type="text" name="title" id="title" value="<?=$app->topic->title; ?>">
+			<input type="submit" value="Bearbeiten">
 		<?php endif; ?>
 		</form>
 		

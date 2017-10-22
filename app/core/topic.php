@@ -3,6 +3,7 @@
 	{
 		public $topic;
 		public $posts;
+		public $author;
 
 		public function __construct()
 		{
@@ -11,6 +12,7 @@
 			$this->requireSession();
 			$this->topic = $this->getTopic(parent::$objRoute[1]);
 			$this->posts = $this->getPosts(parent::$objRoute[1]);
+			$this->author = $this->isAuthor(parent::$objRoute[1], $_SESSION['user']['id']);
 			$this->setTitle('Thema: ' . $this->topic->title);
 		}
 
@@ -69,6 +71,23 @@
 				$out->name = $this->filter($out->name);
 
 				return $out;
+			}
+		}
+
+
+		private function isAuthor($id, $author)
+		{
+			$q = $this->db->prepare('
+				SELECT id FROM topics 
+				WHERE id = ? AND author = ?
+			');
+			$q->execute([$id, $author]);
+
+			if ($q->rowCount() > 0) {
+				return true;
+			}
+			else {
+				return false;
 			}
 		}
 	}

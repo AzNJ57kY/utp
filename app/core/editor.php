@@ -23,6 +23,9 @@
 				else if ($this->mode === 3) {
 					$this->editPost($_POST['content'], $_POST['token'], parent::$objRoute[2], $_SESSION['user']['id'], $this->topic->id);
 				}
+				else if ($this->mode === 4) {
+					$this->editTitle($_POST['title'], $_POST['token'], $this->topic->id, $_SESSION['user']['id']);
+				}
 			}
 		}
 
@@ -50,6 +53,15 @@
 					$this->mode  = 3;
 					$this->post = $this->getPost($_SESSION['user']['id'], parent::$objRoute[2]);
 					$this->topic = $this->getTopicTitle($this->post->topic);
+				}
+				else {
+					$this->redirect('/notfound');
+				}
+			}
+			else if ($method === 'et') {
+				if ($this->checkTopicAuthor($_SESSION['user']['id'], parent::$objRoute[2])) {
+					$this->mode  = 4;
+					$this->topic = $this->getTopicTitle(parent::$objRoute[2]);
 				}
 				else {
 					$this->redirect('/notfound');
@@ -87,6 +99,34 @@
 				else {
 					$this->message = $this->printMessage('
 						Bitte Titel als auch Inhalt angeben!
+					');
+				}
+			}
+		}
+
+		private function editTitle($title, $token, $id, $author) 
+		{
+			if ($this->checkToken($token)) {
+				if (!empty($title)) {
+					if (strlen($title) > 9) {
+						$q = $this->db->prepare('
+							UPDATE topics 
+							SET title = ?, date = NOW()
+							WHERE id = ? AND author = ?
+						');
+						$q->execute([$title, $id, $author]);
+
+						$this->redirect('/topic/' . $id);
+					}
+					else {
+						$this->message = $this->printMessage('
+							Der Titel muss aus min. 10 Zeichen bestehen!
+						');
+					}
+				}
+				else {
+					$this->message = $this->printMessage('
+						Bitte einen Titel definieren!
 					');
 				}
 			}
@@ -170,6 +210,22 @@
 				WHERE id = ?
 			');
 			$q->execute([$id]);
+
+			if ($q->rowCount() > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		private function checkTopicAuthor($author, $id)
+		{
+			$q = $this->db->prepare('
+				SELECT id FROM topics
+				WHERE id = ? AND author = ?
+			');
+			$q->execute([$id, $author]);
 
 			if ($q->rowCount() > 0) {
 				return true;
