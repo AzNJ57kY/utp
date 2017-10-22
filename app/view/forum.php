@@ -8,7 +8,7 @@
 			<?php foreach($app->forums as $forum): ?>
 			<tr>
 				<td>
-					<a href="<?=$app->path; ?>/forum/<?=$forum->id; ?>"><?=$forum->name; ?></a>
+					<a href="<?=$app->path; ?>/forum/<?=$forum->hash; ?>"><?=$forum->name; ?></a>
 				</td>
 				
 				<td>

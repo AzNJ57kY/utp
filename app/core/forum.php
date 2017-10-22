@@ -5,14 +5,14 @@
 		{
 			parent::__construct();
 
-			$this->setTitle('Forum');
+			$this->setTitle('Foren');
 			$this->forums = $this->getForums();
 		}
 
 		public function getForums()
 		{
 			$q = $this->db->query('
-				SELECT * FROM forums
+				SELECT name,hash FROM forums
 				ORDER BY name ASC
 			');
 
