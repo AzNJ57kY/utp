@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 22. Okt 2017 um 14:56
+-- Erstellungszeit: 22. Okt 2017 um 15:41
 -- Server-Version: 5.7.19-0ubuntu0.17.04.1
 -- PHP-Version: 7.0.22-0ubuntu0.17.04.1
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `forums` (
   `id` int(11) NOT NULL,
+  `hash` varchar(32) NOT NULL,
   `name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -35,9 +36,30 @@ CREATE TABLE `forums` (
 -- Daten für Tabelle `forums`
 --
 
-INSERT INTO `forums` (`id`, `name`) VALUES
-(1, 'Test 1'),
-(2, 'Test 2');
+INSERT INTO `forums` (`id`, `hash`, `name`) VALUES
+(1, 'b54a9cc74baf1cee56793a7361397080', 'Test 1'),
+(2, 'ca214ba8b7ad92bb7899b3f554e210da', 'Test 2');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `topics`
+--
+
+CREATE TABLE `topics` (
+  `id` int(11) NOT NULL,
+  `forum` varchar(32) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `author` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `topics`
+--
+
+INSERT INTO `topics` (`id`, `forum`, `title`, `author`, `date`) VALUES
+(1, 'b54a9cc74baf1cee56793a7361397080', 'Test-Thema', 1, '2017-10-22 00:00:00');
 
 --
 -- Indizes der exportierten Tabellen
@@ -50,6 +72,12 @@ ALTER TABLE `forums`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `topics`
+--
+ALTER TABLE `topics`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT für exportierte Tabellen
 --
 
@@ -58,6 +86,11 @@ ALTER TABLE `forums`
 --
 ALTER TABLE `forums`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT für Tabelle `topics`
+--
+ALTER TABLE `topics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
