@@ -9,7 +9,7 @@
 			parent::__construct();
 
 			$this->topics = $this->getTopics(parent::$objRoute[1]);
-			$this->forum  = $this->getForum($this->topics[0]->forum);
+			$this->forum  = $this->getForum(parent::$objRoute[1]);
 			$this->setTitle('Forum: ' . $this->forum->name);
 		}
 
@@ -36,10 +36,12 @@
 			');
 			$q->execute([$hash]);
 
-			$out = $q->fetch(PDO::FETCH_OBJ);
-			$out->name = $this->filter($out->name);
+			if ($q->rowCount() > 0) {
+				$out = $q->fetch(PDO::FETCH_OBJ);
+				$out->name = $this->filter($out->name);
 
-			return $out;
+				return $out;
+			}
 		}
 	}
 ?>
