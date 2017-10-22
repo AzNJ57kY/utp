@@ -1,3 +1,3 @@
-		<h2>Forum: </h2>
+		<h2>Forum: <?=$app->forum->name; ?></h2>
 		<p>Alle verfügbaren Themen aus dem ausgewählten Forum.</p>
 		
