@@ -28,11 +28,18 @@
 					$out = $q->fetch(PDO::FETCH_OBJ);
 
 					$_SESSION['user'] = [
-						'id'   => $out->id,
-						'name' => $out->name
+						'id'   	=> $out->id,
+						'name' 	=> $out->name,
+						'token' => $this->generateToken()
 					];
 
+					session_regenerate_id(true);
 					$this->redirect('/');
+				}
+				else {
+					$this->message = $this->printMessage('
+						Benutzername oder -Passwort fehlerhaft!
+					');
 				}
 			}
 			else {
@@ -40,6 +47,12 @@
 					Bitte einen Benutzernamen als auch ein Passwort angeben!
 				');
 			}
+		}
+
+		private function generateToken()
+		{
+			$token = bin2hex(random_bytes(25));
+			return $token;
 		}
 	}
 ?>

@@ -121,6 +121,16 @@
 			return $message;
 		}
 
+		public function checkToken($token)
+		{
+			if (hash_equals($_SESSION['user']['token'], $token)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
 		private function loadModel() 
 		{
 			$system = 'mysql:dbname=utp;host=127.0.0.1';
