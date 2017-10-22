@@ -9,7 +9,7 @@
 			$this->forums = $this->getForums();
 		}
 
-		public function getForums()
+		private function getForums()
 		{
 			$q = $this->db->query('
 				SELECT name,hash FROM forums

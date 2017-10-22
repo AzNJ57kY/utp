@@ -76,3 +76,8 @@ table tr:first-child {
 	cursor: default;
 	opacity: 0.7;
 }
+
+article {
+	padding: 8px 10px;
+	border: 1px solid #282828;
+}

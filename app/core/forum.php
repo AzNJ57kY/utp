@@ -8,12 +8,12 @@
 		{
 			parent::__construct();
 
-			$this->topics = $this->getTopics(parent::$objRoute[1]);
 			$this->forum  = $this->getForum(parent::$objRoute[1]);
+			$this->topics = $this->getTopics(parent::$objRoute[1]);
 			$this->setTitle('Forum: ' . $this->forum->name);
 		}
 
-		public function getTopics($hash)
+		private function getTopics($hash)
 		{
 			$q = $this->db->prepare('
 				SELECT id,title,date FROM topics
@@ -35,7 +35,7 @@
 			}
 		}
 
-		public function getForum($hash)
+		private function getForum($hash)
 		{
 			$q = $this->db->prepare('
 				SELECT name FROM forums
