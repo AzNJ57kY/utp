@@ -28,7 +28,7 @@
 				$name = preg_replace('/[^a-z]+/', '', $file); 
 			}
 			else {
-				$name = 'forums'; 
+				$name = 'forum';
 			}
 
 			self::$init = [
@@ -62,16 +62,33 @@
 			session_name('SESSION');
 			session_start();
 
-			if (!isset($_SESSION['user'])) {
+			if (!isset($_SESSION['id'])) {
 				session_regenerate_id(true);
-				$_SESSION['user'] = time();
+				$_SESSION['id'] = time();
 			}
 
 			// 300 == 5 minutes
-			
-			if ($_SESSION['user'] < time() - 300) {
+
+			if ($_SESSION['id'] < time() - 300) {
 				session_regenerate_id(true);
-				$_SESSION['user'] = time();
+				$_SESSION['id'] = time();
+			}
+		}
+
+		public function checkSession()
+		{
+			if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		public function requireSession()
+		{
+			if (!$this->checkSession()) {
+				$this->redirect('/login');
 			}
 		}
 

@@ -19,9 +19,15 @@
 			<p>Your place for confidential discussion.</p>
 		</a>
 		<div>
+			<?php if ($app->checkSession()): ?>
 			<nav>
 				<a href="<?=$app->path; ?>">Forum</a>
 			</nav>
+			<?php else: ?>
+			<nav>
+				<a href="<?=$app->path; ?>/login">Login</a>
+			</nav>
+			<?php endif; ?>
 		</div>
 	</header>
 	<main>

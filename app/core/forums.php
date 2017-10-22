@@ -4,7 +4,8 @@
 		public function __construct()
 		{
 			parent::__construct();
-
+			
+			$this->requireSession();
 			$this->setTitle('Foren');
 			$this->forums = $this->getForums();
 		}

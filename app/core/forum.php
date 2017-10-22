@@ -8,6 +8,7 @@
 		{
 			parent::__construct();
 
+			$this->requireSession();
 			$this->forum  = $this->getForum(parent::$objRoute[1]);
 			$this->topics = $this->getTopics(parent::$objRoute[1]);
 			$this->setTitle('Forum: ' . $this->forum->name);

@@ -8,6 +8,7 @@
 		{
 			parent::__construct();
 
+			$this->requireSession();
 			$this->topic = $this->getTopic(parent::$objRoute[1]);
 			$this->posts = $this->getPosts(parent::$objRoute[1]);
 			$this->setTitle('Thema: ' . $this->topic->title);
