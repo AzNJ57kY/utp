@@ -85,3 +85,10 @@ article {
 	padding: 8px 10px;
 	border: 1px solid #282828;
 }
+
+div.message {
+	background-color: #6e3333;
+	padding: 14px;
+	border-radius: 3px;
+	margin-bottom: 35px;
+}

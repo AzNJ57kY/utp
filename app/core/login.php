@@ -1,6 +1,8 @@
 <?php
 	class Login extends App 
 	{
+		public $message;
+
 		public function __construct()
 		{
 			parent::__construct();
@@ -32,6 +34,11 @@
 
 					$this->redirect('/');
 				}
+			}
+			else {
+				$this->message = $this->printMessage('
+					Bitte einen Benutzernamen als auch ein Passwort angeben!
+				');
 			}
 		}
 	}

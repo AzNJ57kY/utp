@@ -15,8 +15,8 @@
 		{
 			$_SESSION['user'] = [];
 			unset($_SESSION['user']);
-
 			session_destroy();
+
 			$this->redirect('/');
 		}
 	}

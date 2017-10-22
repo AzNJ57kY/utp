@@ -109,6 +109,18 @@
 			die('No interceptions!');
 		}
 
+		public function printMessage($message)
+		{
+			if (!empty($message)) {
+				$message = '<div class="message">' . $this->filter($message) . '</div>';
+			}
+			else {
+				$message = null;
+			}
+
+			return $message;
+		}
+
 		private function loadModel() 
 		{
 			$system = 'mysql:dbname=utp;host=127.0.0.1';
