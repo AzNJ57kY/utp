@@ -41,6 +41,8 @@ html{height:100% !important;}
   outline: none !important;
   padding:0 !important;
   width:100% !important;
+  background: transparent;
+  color: #f3f3f3;
 }
 
 /* MOBILE DEFAULT STYLES*/
@@ -227,13 +229,12 @@ html{height:100% !important;}
   position:relative;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown:hover{
-  background:#333;
+  background:#1a1a1a;
   border:1px solid transparent;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown.on,.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown.on:active{
    border:1px solid #aaa;
    background:#ccc;
-   box-shadow:inset 0px 0px 3px #aaa;
 }
 .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-dropdown ins.ar{
   display:block;
@@ -264,10 +265,9 @@ html{height:100% !important;}
   top:10px;
   left:3%;
   border: 1px solid #bbb;
-  box-shadow: 0px 0px 3px #aaa;
   width:90%;
   padding:5px;
-  background:#fff;
+  background:#1d1d1d;
   max-height:90%;
   overflow:auto;
   z-index:1000;
