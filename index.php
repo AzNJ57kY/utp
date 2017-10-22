@@ -18,9 +18,11 @@
 			<h2><?=$app->name; ?></h2>
 			<p>Your place for confidential discussion.</p>
 		</a>
-		<nav>
-			<a href="<?=$app->path; ?>">Home</a>
-		</nav>
+		<div>
+			<nav>
+				<a href="<?=$app->path; ?>">Home</a>
+			</nav>
+		</div>
 	</header>
 	<main>
 <?php
