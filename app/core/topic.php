@@ -17,7 +17,7 @@
 		private function getPosts($topic)
 		{
 			$q = $this->db->prepare('
-				SELECT content FROM posts
+				SELECT content,author,date FROM posts
 				WHERE topic = ?
 				ORDER BY id ASC
 			');
@@ -28,6 +28,8 @@
 
 				foreach($out as $ent) {
 					$ent->content = nl2br($this->filter($ent->content));
+					$ent->author  = $this->getAuthor($ent->author)->name;
+					$ent->date  = date('d.m.y H:i', strtotime($ent->date)) . ' Uhr';
 				}
 
 				return $out;
@@ -50,6 +52,22 @@
 			}
 			else {
 				$this->redirect('/notfound');
+			}
+		}
+
+		private function getAuthor($id)
+		{
+			$q = $this->db->prepare('
+				SELECT name FROM users
+				WHERE id = ?
+			');
+			$q->execute([$id]);
+
+			if ($q->rowCount() > 0) {
+				$out = $q->fetch(PDO::FETCH_OBJ);
+				$out->name = $this->filter($out->name);
+
+				return $out;
 			}
 		}
 	}

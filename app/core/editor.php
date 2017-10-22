@@ -3,6 +3,7 @@
 	{
 		public $mode;
 		public $message;
+		public $topic;
 
 		public function __construct()
 		{
@@ -15,6 +16,9 @@
 				if ($this->mode === 1) {
 					$this->addTopic($_POST['title'], $_POST['content'], $_POST['token'], parent::$objRoute[2], $_SESSION['user']['id']);
 				}
+				else if ($this->mode === 2) {
+					$this->addPost($_POST['content'], $_POST['token'], parent::$objRoute[2], $_SESSION['user']['id']);
+				}
 			}
 		}
 
@@ -25,14 +29,22 @@
 					$this->mode = 1;
 				}
 				else {
-					$this->redirect('/');
+					$this->redirect('/notfound');
+				}
+			}
+			else if ($method === 'cp') {
+				if ($this->checkTopic(parent::$objRoute[2])) {
+					$this->mode  = 2;
+					$this->topic = $this->getTopicTitle(parent::$objRoute[2]);
+				}
+				else {
+					$this->redirect('/notfound');
 				}
 			}
 		}
 
 		private function addTopic($title, $content, $token, $forum, $author) 
 		{
-			$forum = $forum;
 			if ($this->checkToken($token)) {
 				if (!empty($title) && !empty($content)) {
 					if (strlen($title) > 9 || strlen($content) > 9) {
@@ -79,6 +91,65 @@
 			}
 			else {
 				return false;
+			}
+		}
+
+		private function addPost($content, $token, $topic, $author) 
+		{
+			if ($this->checkToken($token)) {
+				if (!empty($content)) {
+					if (strlen($content) > 9) {
+						$q = $this->db->prepare('
+							INSERT INTO posts (topic,author,content,date)
+							VALUES (?,?,?,NOW())
+						');
+						$q->execute([$topic, $author, $content]);
+
+						$this->redirect('/topic/' . $topic);
+					}
+					else {
+						$this->message = $this->printMessage('
+							Der Inhalt muss aus min. 10 Zeichen bestehen!
+						');
+					}
+				}
+				else {
+					$this->message = $this->printMessage('
+						Bitte einen Inhalt angeben!
+					');
+				}
+			}
+		}
+
+		private function checkTopic($id)
+		{
+			$q = $this->db->prepare('
+				SELECT id FROM topics
+				WHERE id = ?
+			');
+			$q->execute([$id]);
+
+			if ($q->rowCount() > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		private function getTopicTitle($id)
+		{
+			$q = $this->db->prepare('
+				SELECT id,title FROM topics
+				WHERE id = ?
+			');
+			$q->execute([$id]);
+
+			if ($q->rowCount() > 0) {
+				$out = $q->fetch(PDO::FETCH_OBJ);
+				$out->title = $this->filter($out->title);
+				
+				return $out;
 			}
 		}
 	}

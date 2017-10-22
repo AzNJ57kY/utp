@@ -9,6 +9,13 @@
 			<label for="content">Inhalt des neuen Themas</label>
 			<textarea name="content" id="content"></textarea>
 			<input type="submit" value="Erstellen">
+		<?php elseif ($app->mode === 2): ?>
+			<label for="content">
+					Beitrag zum Thema: 
+					<a href="<?=$app->path; ?>/topic/<?=$app->topic->id; ?>" target="_blank" rel="noopener noreferer"><?=$app->topic->title; ?></a>
+			</label>
+			<textarea name="content" id="content"></textarea>
+			<input type="submit" value="Erstellen">
 		<?php endif; ?>
 		</form>
 		

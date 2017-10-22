@@ -103,6 +103,17 @@ table tr:first-child {
 article {
 	padding: 8px 10px;
 	border: 1px solid #282828;
+	border-bottom: none;
+}
+
+article > p:first-of-type {
+	margin-bottom: 40px;
+}
+
+article > nav {
+	margin-top: 60px;
+	border-top: 1px dotted #333;
+	padding-top: 5px;
 }
 
 div.message {
