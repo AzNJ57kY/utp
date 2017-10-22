@@ -16,7 +16,7 @@
 		public function getTopics($hash)
 		{
 			$q = $this->db->prepare('
-				SELECT * FROM topics
+				SELECT id,title,date FROM topics
 				WHERE forum = ?
 				ORDER BY id DESC
 			');
@@ -24,6 +24,13 @@
 
 			if ($q->rowCount() > 0) {
 				$out = $q->fetchAll(PDO::FETCH_OBJ);
+
+				foreach($out as $ent) {
+					$ent->title = $this->filter($ent->title);
+					$ent->date  = date('d.m.y H:i', strtotime($ent->date)) . ' Uhr';
+					$ent->path  = $this->path . '/topic/' . $ent->id;
+				}
+
 				return $out;
 			}
 		}
