@@ -1,8 +1,35 @@
+html {
+	background-color: #111;
+}
+
 body {
 	font-family: arial, sans-serif;
+	font-size: 14px;
+	color: #f3f3f3;
+}
+
+a {
+	color: #f3f3f3;
+	text-decoration: none;
 }
 
 header {
-	border-bottom: 1px solid black;
-	padding-bottom: 40px;
+	padding: 25px 0px;
+}
+
+header > a {
+	margin: auto;
+	display: table;
+	text-align: center;
+}
+
+header a > h2 {
+	text-shadow: 0px 0px 30px #fff;
+	font-size: 30px;
+}
+
+header nav {
+	margin: auto;
+	display: block;
+	max-width: 1080px;
 }
