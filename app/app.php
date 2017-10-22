@@ -21,14 +21,14 @@
 		{
 			self::secureSessionStart();
 			self::loadRoute();
-
+			
 			$file = self::$objRoute[0];
 
 			if (!empty($file) && file_exists(self::$modlPath . $file . '.php')) {
 				$name = preg_replace('/[^a-z]+/', '', $file); 
 			}
 			else {
-				$name = 'forum';
+				$name = 'forums'; 
 			}
 
 			self::$init = [
