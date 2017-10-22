@@ -44,7 +44,7 @@ header nav {
 }
 
 header nav > a {
-	margin-right: 25px;
+	margin-right: 35px;
 }
 
 main {
@@ -91,4 +91,41 @@ div.message {
 	padding: 14px;
 	border-radius: 3px;
 	margin-bottom: 35px;
+}
+
+form {
+	padding: 8px 10px;
+	border: 1px solid #282828;
+}
+
+form > label {
+	display: block;
+	margin: 20px 0px;
+}
+
+input {
+	font-family: arial, sans-serif;
+	font-size: 14px;
+}
+
+input[type=text], input[type=password] {
+	color: #f3f3f3;
+	padding: 8px 10px;
+	border: 1px solid #282828;
+	border-radius: 3px;
+	background-color: transparent;
+	width: 300px;
+}
+
+input[type=submit] {
+	color: #f3f3f3;
+	cursor: pointer;
+	margin-top: 40px;
+	margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    background: none;
+    border: 0;
+    border-top: 1px solid #282828;
+    padding-top: 20px;
 }
