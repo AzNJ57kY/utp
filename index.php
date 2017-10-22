@@ -14,10 +14,7 @@
 
 <body>
 	<header>
-		<a href="<?=$app->path; ?>">
-			<h2><?=$app->name; ?></h2>
-			<p>Your place for confidential discussion.</p>
-		</a>
+		<h2><?=$app->name; ?></h2>
 		<nav>
 			<a href="<?=$app->path; ?>">Home</a>
 		</nav>
