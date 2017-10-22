@@ -12,7 +12,11 @@
 				</td>
 				
 				<td>
-					<a href="<?=$app->path; ?>">Link</a>
+					<?php if (is_object($forum->last)): ?>
+					<a href="<?=$app->path; ?>/topic/<?=$forum->last->id; ?>"><?=$forum->last->title; ?></a>
+					<?php else: ?>
+					<?=$forum->last; ?>
+					<?php endif; ?>
 				</td>
 			</tr>
 			<?php endforeach; ?>

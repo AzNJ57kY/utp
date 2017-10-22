@@ -20,9 +20,31 @@
 
 			foreach ($out as $ent) {
 				$ent->name = $this->filter($ent->name);
+				$ent->last = $this->getLastTopic($ent->hash);
 			}
 
 			return $out;
+		}
+
+		private function getLastTopic($hash)
+		{
+			$q = $this->db->prepare('
+				SELECT title,id FROM topics
+				WHERE forum = ?
+				ORDER BY id DESC 
+				LIMIT 1
+			');
+			$q->execute([$hash]);
+
+			if ($q->rowCount() > 0) {
+				$topic = $q->fetch(PDO::FETCH_OBJ);
+				$topic->title = $this->filter($topic->title);
+			}
+			else {
+				$topic = '-';
+			}
+
+			return $topic;
 		}
 	}
 ?>

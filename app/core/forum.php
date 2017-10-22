@@ -18,7 +18,7 @@
 			$q = $this->db->prepare('
 				SELECT id,title,date FROM topics
 				WHERE forum = ?
-				ORDER BY id DESC
+				ORDER BY id ASC
 			');
 			$q->execute([$hash]);
 
