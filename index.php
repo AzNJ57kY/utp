@@ -22,7 +22,7 @@
 			<?php if ($app->checkSession()): ?>
 			<nav>
 				<a href="<?=$app->path; ?>">Forum</a>
-				<a href="<?=$app->path; ?>/logout">Logout</a>
+				<a href="<?=$app->path; ?>/logout">Logout [ <?=$app->filter($_SESSION['user']['name']); ?> ]</a>
 			</nav>
 			<?php else: ?>
 			<nav>

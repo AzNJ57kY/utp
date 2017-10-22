@@ -44,7 +44,13 @@ header nav {
 }
 
 header nav > a {
-	margin-right: 35px;
+	margin-right: 30px;
+	border-right: 1px solid #2f2f2f;
+	padding-right: 35px;
+}
+
+header nav > a:last-child {
+	border-right: none;
 }
 
 main {
@@ -60,6 +66,19 @@ main > p {
 	border-bottom: 1px dotted #3e3e3e;
 	padding-bottom: 35px;
 	margin-bottom: 35px;
+}
+
+main > nav {
+	margin-bottom: 35px;
+}
+
+main > nav > a {
+	display: inline-block;
+	border: 1px solid #222;
+	background-color: #222;
+	text-align: center;
+	padding: 6px 10px;
+	border-radius: 3px;
 }
 
 table {
@@ -99,8 +118,10 @@ form {
 }
 
 form > label {
+	cursor: pointer;
 	display: block;
 	margin: 20px 0px;
+	opacity: 0.7;
 }
 
 input {

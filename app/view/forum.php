@@ -1,5 +1,8 @@
 		<h2>Forum: <?=$app->forum->name; ?></h2>
 		<p>Alle verfügbaren Themen aus dem ausgewählten Forum.</p>
+		<nav>
+			<a href="">Thema erstellen</a>
+		</nav>
 		<table>
 			<tr>
 				<td>Thema</td>
