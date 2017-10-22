@@ -1,5 +1,5 @@
 <?php
-	class Forum extends App 
+	class Forums extends App 
 	{
 		public function __construct()
 		{
