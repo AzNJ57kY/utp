@@ -3,56 +3,56 @@
  */
 if (typeof (WBBLANG)=="undefined") {WBBLANG = {};}
 WBBLANG['en'] = CURLANG = {
-	bold: "Bold",
-	italic: "Italic",
-	underline: "Underline",
-	strike: "Strike",
+	bold: "Fett",
+	italic: "Kursiv",
+	underline: "Unterstrichen",
+	strike: "Durchgestrichen",
 	link: "Link",
-	img: "Insert image",
+	img: "Bild",
 	sup: "Superscript",
 	sub: "Subscript",
-	justifyleft: "Align left",
-	justifycenter: "Align center",
-	justifyright: "Align right",
+	justifyleft: "Links anordnen",
+	justifycenter: "Mittig anordnen",
+	justifyright: "Rechts anordnen",
 	table: "Insert table",
-	bullist: "• Unordered list",
-	numlist: "1. Ordered list",
-	quote: "Quote",
+	bullist: "• Liste",
+	numlist: "1. Nummerierte Liste",
+	quote: "Zitat",
 	offtop: "Offtop",
 	code: "Code",
 	spoiler: "Spoiler",
-	fontcolor: "Font color",
-	fontsize: "Font size",
-	fontfamily: "Font family",
-	fs_verysmall: "Very small",
-	fs_small: "Small",
+	fontcolor: "Schriftfarbe",
+	fontsize: "Schriftgröße",
+	fontfamily: "Schriftfamilie",
+	fs_verysmall: "Sehr klein",
+	fs_small: "Klein",
 	fs_normal: "Normal",
-	fs_big: "Big",
-	fs_verybig: "Very big",
+	fs_big: "Groß",
+	fs_verybig: "Sehr Groß",
 	smilebox: "Insert emoticon",
 	video: "Insert YouTube",
-	removeFormat:"Remove Format",
+	removeFormat:"Format zurücksetzen",
 	
-	modal_link_title: "Insert link",
+	modal_link_title: "Link einbetten",
 	modal_link_text: "Display text",
 	modal_link_url: "URL",
 	modal_email_text: "Display email",
 	modal_email_url: "Email",
-	modal_link_tab1: "Insert URL",
+	modal_link_tab1: "URL eingeben",
 	
-	modal_img_title: "Insert image",
-	modal_img_tab1: "Insert URL",
+	modal_img_title: "Bild einbetten",
+	modal_img_tab1: "URL",
 	modal_img_tab2: "Upload image",
-	modal_imgsrc_text: "Enter image URL",
+	modal_imgsrc_text: "URL",
 	modal_img_btn: "Choose file",
 	add_attach: "Add Attachment",
 	
 	modal_video_text: "Enter the URL of the video",
 	
-	close: "Close",
-	save: "Save",
-	cancel: "Cancel",
-	remove: "Delete",
+	close: "Schließen",
+	save: "Speichern",
+	cancel: "Abbrechen",
+	remove: "Entfernen",
 	
 	validation_err: "The entered data is invalid",
 	error_onupload: "Error during file upload",
@@ -176,14 +176,14 @@ wbbdebug=true;
 						tabs: [
 							{
 								input: [
-									{param: "SELTEXT",title:CURLANG.modal_link_text, type: "div"},
+									//{param: "SELTEXT",title:CURLANG.modal_link_text, type: "div"},
 									{param: "URL",title:CURLANG.modal_link_url,validation: '^http(s)?://'}
 								]
 							}
 						]
 					},
 					transform : {
-						'<a href="{URL}">{SELTEXT}</a>':"[url={URL}]{SELTEXT}[/url]",
+						'<a href="{URL}">{URL}</a>':"[url={URL}]{URL}[/url]",
 						'<a href="{URL}">{URL}</a>':"[url]{URL}[/url]"
 					}
 				},
@@ -969,7 +969,7 @@ wbbdebug=true;
 			
 			//build bbcode switch button
 			//var $bbsw = $('<div class="wysibb-toolbar-container modeSwitch"><div class="wysibb-toolbar-btn" unselectable="on"><span class="btn-inner ve-tlb-bbcode" unselectable="on"></span></div></div>').appendTo(this.$toolbar);
-			var $bbsw = $(document.createElement('div')).addClass("wysibb-toolbar-container modeSwitch").html('<div class="wysibb-toolbar-btn mswitch" unselectable="on"><span class="btn-inner modesw" unselectable="on">[bbcode]</span></div>').appendTo(this.$toolbar);
+			var $bbsw = $(document.createElement('div')).addClass("wysibb-toolbar-container modeSwitch").html('<div class="wysibb-toolbar-btn mswitch" unselectable="on"><span class="btn-inner modesw" unselectable="on">SRC</span></div>').appendTo(this.$toolbar);
 			if (this.options.bbmode==true) {$bbsw.children(".wysibb-toolbar-btn").addClass("on");}
 			if (this.options.onlyBBmode===false) {
 				$bbsw.children(".wysibb-toolbar-btn").click($.proxy(function(e) {

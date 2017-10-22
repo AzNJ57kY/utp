@@ -381,11 +381,12 @@ html{height:100% !important;}
   cursor:pointer;
 }
 .wbb-select .option:hover{
-  background:#eee;
+  background:#333;
+  color: #fff;
 }
 .wbb-select .option.selected{
-  background:#428bca;
-  color:#fff;
+  background:#333;
+  color:#f3f3f3;
 }
 
 /* END SELECT */
@@ -439,20 +440,19 @@ html{height:100% !important;}
 }
 
 #wbbmodal  .wbbm{
-  background: #fff;
+  background: #1d1d1d;
   text-align:left;
   max-width: 90%;
   max-height:90%;
   margin: 30px auto;
-  border: 1px solid #bbb;
-  box-shadow:0px 0px 5px #333;
+  border: 1px solid #343434;
   overflow:auto;
 }
 #wbbmodal  .wbbm-title{
-  color:#333;
+  color:#f3f3f3;
   position:relative;
   padding:5px 10px;
-  border-bottom:1px solid #ccc;
+  border-bottom:1px dashed #363636;
 }
 #wbbmodal  .wbbm-title .wbbm-title-text{
   font-size:1.6em;
@@ -469,7 +469,7 @@ html{height:100% !important;}
   font-size:21px;
   font-weight:bold;
   cursor:pointer;
-  color:#888;
+  color:#fff;
 }
 #wbbmodal  .wbbm-title .wbbclose:hover{
   color:red;
@@ -492,12 +492,12 @@ html{height:100% !important;}
   margin: 0 10px 5px 0;
 }
 #wbbmodal  .wbbm .wbbm-tablist ul li.on,#wbbmodal  .wbbm .wbbm-tablist ul li.on:hover{
-  background:#428bca;
+  background:#1d1d1d;
   color:#fff;
   cursor:default;
 }
 #wbbmodal  .wbbm .wbbm-tablist ul li:hover{
-  background:#eee;
+  background:#1d1d1d;
 }
 
 #wbbmodal  .wbbm-cont{
@@ -509,7 +509,7 @@ html{height:100% !important;}
 }
 
 #wbbmodal .div-modal-text{
-  border:1px solid #aaa;
+  border:1px solid #333;
   padding:2px 5px;
   line-height: 28px;
   max-height:100px;
@@ -517,11 +517,9 @@ html{height:100% !important;}
   font-size:14px;
 }
 #wbbmodal  .wbbm-bottom{
-
-  border-top:1px solid #ccc;
-
-  padding:10px;
-  background:#f1f1f1;
+border-top: 1px solid #2a2a2a;
+padding: 10px;
+background: #121212;
 }
 #wbbmodal button{
   display:inline-block;*display:inline;zoom: 1;
@@ -529,31 +527,25 @@ html{height:100% !important;}
   padding:3px 15px;
 }
 #wbbmodal .wbb-button{
-  background:#428bca;
+  background:transparent;
   color:#fff;
   line-height:26px;
-  border:1px solid #357ebd;
+  border:none;
   border-radius:0px;
   
   cursor:pointer;
 }
-#wbbmodal .wbb-button:hover{
-  background:#3276b1;
-  border:1px solid #285e8e;
-}
+
 #wbbmodal .wbb-cancel-button{
-  background:#f5f5f5;
-  color:#333;
+  background:transparent;
+  color:#999;
   line-height:26px;
-  border:1px solid #ddd;
+  border:none;
   border-radius:0px;
   cursor:pointer;
   margin-left:15px;
 }
-#wbbmodal .wbb-cancel-button:hover{
-  background:#fff;
-  border:1px solid #ccc;
-}
+
 #wbbmodal .wbb-remove-button{
   background:#d9534f;
   color:#fff;
@@ -575,17 +567,17 @@ html{height:100% !important;}
   display:block;
   font-weight:bold;
   margin-bottom:3px;
-  color: #000;
+  color: #f3f3f3;
 }
 #wbbmodal .wbbm-inp-row input{
-  color: #000;
+  color: #f3f3f3;
   display:block;
   height:34px;
   padding:2px 5px;
   line-height: 1.42857143;
   font-size:14px;
   width:100%;
-  border:1px solid #aaa;
+  border:1px solid #3c3c3c;
   outline:none;
   box-sizing:border-box;
   border-radius:0;
@@ -748,10 +740,9 @@ html{height:100% !important;}
 	  position:absolute;
 	  top:32px;
 	  left:-1px;
-	  border: 1px solid #bbb;
-	  box-shadow: 0px 0px 3px #aaa;
+	  border: 1px solid #323232;
 	  width:190px;
-	  background:#fff;
+	  background:#323232;
 	  max-height:220px;
 	  overflow:auto;
 	  z-index:1000;
