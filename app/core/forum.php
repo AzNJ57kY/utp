@@ -49,6 +49,9 @@
 
 				return $out;
 			}
+			else {
+				$this->redirect('/notfound');
+			}
 		}
 	}
 ?>

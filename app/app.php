@@ -59,6 +59,12 @@
 			$this->title = $this->filter($title);
 		}
 
+		public function redirect($path)
+		{
+			header('Location: ' . $this->path . $path);
+			die('No interceptions!');
+		}
+
 		private function loadModel() 
 		{
 			$system = 'mysql:dbname=utp;host=127.0.0.1';

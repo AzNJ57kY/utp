@@ -3,7 +3,7 @@
 		<table>
 			<tr>
 				<td>Thema</td>
-				<td style="width: 10%;">Datum</td>
+				<td style="width: 15%;">Datum</td>
 			</tr>
 			<?php if (is_array($app->topics)): ?>
 			<?php foreach($app->topics as $topic): ?>
