@@ -20,6 +20,9 @@
 				else if ($this->mode === 2) {
 					$this->addPost($_POST['content'], $_POST['token'], parent::$objRoute[2], $_SESSION['user']['id']);
 				}
+				else if ($this->mode === 3) {
+					$this->editPost($_POST['content'], $_POST['token'], parent::$objRoute[2], $_SESSION['user']['id'], $this->topic->id);
+				}
 			}
 		}
 
@@ -115,6 +118,34 @@
 							VALUES (?,?,?,NOW())
 						');
 						$q->execute([$topic, $author, $content]);
+
+						$this->redirect('/topic/' . $topic);
+					}
+					else {
+						$this->message = $this->printMessage('
+							Der Inhalt muss aus min. 10 Zeichen bestehen!
+						');
+					}
+				}
+				else {
+					$this->message = $this->printMessage('
+						Bitte einen Inhalt angeben!
+					');
+				}
+			}
+		}
+
+		private function editPost($content, $token, $id, $author, $topic) 
+		{
+			if ($this->checkToken($token)) {
+				if (!empty($content)) {
+					if (strlen($content) > 9) {
+						$q = $this->db->prepare('
+							UPDATE posts
+							SET content = ?, date = NOW()
+							WHERE id = ? AND author = ?
+						');
+						$q->execute([$content, $id, $author]);
 
 						$this->redirect('/topic/' . $topic);
 					}
