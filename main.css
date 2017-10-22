@@ -103,7 +103,11 @@ table tr:first-child {
 article {
 	padding: 8px 10px;
 	border: 1px solid #282828;
-	border-bottom: none;
+	border-top: none;
+}
+
+article:first-of-type {
+	border-top: 1px solid #282828;
 }
 
 article > p:first-of-type {

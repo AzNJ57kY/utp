@@ -4,6 +4,7 @@
 		public $mode;
 		public $message;
 		public $topic;
+		public $post;
 
 		public function __construct()
 		{
@@ -36,6 +37,16 @@
 				if ($this->checkTopic(parent::$objRoute[2])) {
 					$this->mode  = 2;
 					$this->topic = $this->getTopicTitle(parent::$objRoute[2]);
+				}
+				else {
+					$this->redirect('/notfound');
+				}
+			}
+			else if ($method === 'ep') {
+				if ($this->checkPost($_SESSION['user']['id'], parent::$objRoute[2])) {
+					$this->mode  = 3;
+					$this->post = $this->getPost($_SESSION['user']['id'], parent::$objRoute[2]);
+					$this->topic = $this->getTopicTitle($this->post->topic);
 				}
 				else {
 					$this->redirect('/notfound');
@@ -148,6 +159,39 @@
 			if ($q->rowCount() > 0) {
 				$out = $q->fetch(PDO::FETCH_OBJ);
 				$out->title = $this->filter($out->title);
+				
+				return $out;
+			}
+		}
+
+		private function checkPost($author, $id)
+		{
+			$q = $this->db->prepare('
+				SELECT id FROM posts
+				WHERE id = ? AND author = ?
+			');
+			$q->execute([$id, $author]);
+
+			if ($q->rowCount() > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+
+		private function getPost($author, $id)
+		{
+			$q = $this->db->prepare('
+				SELECT topic,content FROM posts
+				WHERE id = ? AND author = ?
+			');
+			$q->execute([$id, $author]);
+
+			if ($q->rowCount() > 0) {
+				$out = $q->fetch(PDO::FETCH_OBJ);
+				$out->content = $this->filter($out->content);
 				
 				return $out;
 			}

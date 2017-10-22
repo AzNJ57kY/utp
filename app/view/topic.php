@@ -8,7 +8,7 @@
 			<p>Autor: <?=$post->author; ?> | <?=$post->date; ?></p>
 			<?=$post->content; ?>
 			<nav>
-				<a href="">Bearbeiten</a>
+				<a href="<?=$app->path; ?>/editor/ep/<?=$post->id; ?>">Bearbeiten</a>
 			</nav>
 		</article>
 		<?php endforeach; ?>

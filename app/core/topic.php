@@ -17,7 +17,7 @@
 		private function getPosts($topic)
 		{
 			$q = $this->db->prepare('
-				SELECT content,author,date FROM posts
+				SELECT id,content,author,date FROM posts
 				WHERE topic = ?
 				ORDER BY id ASC
 			');
@@ -27,6 +27,7 @@
 				$out = $q->fetchAll(PDO::FETCH_OBJ);
 
 				foreach($out as $ent) {
+					$ent->id      = intval($ent->id);
 					$ent->content = nl2br($this->filter($ent->content));
 					$ent->author  = $this->getAuthor($ent->author)->name;
 					$ent->date  = date('d.m.y H:i', strtotime($ent->date)) . ' Uhr';

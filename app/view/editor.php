@@ -16,6 +16,13 @@
 			</label>
 			<textarea name="content" id="content"></textarea>
 			<input type="submit" value="Erstellen">
+		<?php elseif ($app->mode === 3): ?>
+			<label for="content">
+					Editierung zum Thema: 
+					<a href="<?=$app->path; ?>/topic/<?=$app->topic->id; ?>" target="_blank" rel="noopener noreferer"><?=$app->topic->title; ?></a>
+			</label>
+			<textarea name="content" id="content"><?=$app->post->content; ?></textarea>
+			<input type="submit" value="Bearbeiten">
 		<?php endif; ?>
 		</form>
 		
