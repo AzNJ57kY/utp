@@ -3,7 +3,7 @@
 		<table>
 			<tr>
 				<td style="width: 70%;">Forum</td>
-				<td>Letzter Beitrag</td>
+				<td>Letztes Thema</td>
 			</tr>
 			<?php foreach($app->forums as $forum): ?>
 			<tr>
