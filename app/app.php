@@ -19,7 +19,9 @@
 
 		public static function initApp()
 		{
+			self::secureSessionStart();
 			self::loadRoute();
+
 			$file = self::$objRoute[0];
 
 			if (!empty($file) && file_exists(self::$modlPath . $file . '.php')) {
@@ -45,6 +47,31 @@
 				$url = explode('/', $url);
 
 				self::$objRoute = array_values($url);
+			}
+		}
+
+		private static function secureSessionStart()
+		{
+			ini_set('session.hash_function', 'sha512');
+			ini_set('session.referer_check', 0);
+			ini_set('session.cookie_httponly', 1);
+			
+			// if TLS/SSL in use: 
+			// ini_set('session.cookie_secure', 1);
+
+			session_name('SESSION');
+			session_start();
+
+			if (!isset($_SESSION['user'])) {
+				session_regenerate_id(true);
+				$_SESSION['user'] = time();
+			}
+
+			// 300 == 5 minutes
+			
+			if ($_SESSION['user'] < time() - 300) {
+				session_regenerate_id(true);
+				$_SESSION['user'] = time();
 			}
 		}
 
