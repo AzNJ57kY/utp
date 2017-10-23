@@ -10,9 +10,6 @@
 	<title><?=$app->name; ?> - <?=$app->title; ?></title>
 	<meta charset="utf-8">
 	<link href="<?=$app->path; ?>/main.css" rel="stylesheet">
-	<link href="<?=$app->path; ?>/app/libs/editor/theme/default/wbbtheme.css" rel="stylesheet">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="<?=$app->path; ?>/app/libs/editor/jquery.wysibb.js"></script>
 </head>
 
 <body>

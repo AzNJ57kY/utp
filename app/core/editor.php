@@ -26,6 +26,9 @@
 				else if ($this->mode === 4) {
 					$this->editTitle($_POST['title'], $_POST['token'], $this->topic->id, $_SESSION['user']['id']);
 				}
+				else {
+					$this->redirect('/notfound');
+				}
 			}
 		}
 
@@ -66,6 +69,9 @@
 				else {
 					$this->redirect('/notfound');
 				}
+			}
+			else {
+				$this->redirect('/notfound');
 			}
 		}
 
